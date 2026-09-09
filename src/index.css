@@ -1,0 +1,21 @@
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #21324b;
+  background: #fdfbf7;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --paper: #fdfbf7;
+  --ink-soft: #5d6570;
+  --navy: #173b63;
+  --navy-muted: #52677f;
+  --blue: #2a6096;
+  --blue-soft: #b8cce0;
+  --blue-pale: #edf3f7;
+  --gold: #ae8a4d;
+  --line: #dedbd4;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; }
+button, a { font: inherit; }
