@@ -63,7 +63,7 @@ export const siteContent = {
       href: '',
       helperText: 'Em breve vamos adicionar o link ou formulário de confirmação.',
     },
-    notes: ['Cerimônia e recepção no mesmo local.', 'Traje social.', 'A cor azul é reservada para as madrinhas.'],
+    notes: ['Cerimônia e recepção no mesmo local.', 'Traje social.', 'A cor azul serenity é reservada para as madrinhas.', 'Não vestir preto.'],
   },
   gifts: {
     sectionTitle: 'Presentes',

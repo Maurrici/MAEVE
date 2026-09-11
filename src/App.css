@@ -7,8 +7,8 @@ img, iframe { max-width: 100%; }
 .opening-content h1 { margin: 1rem 0 .4rem; }
 .opening-content p:last-child { color: var(--navy-muted); letter-spacing: .15em; text-transform: uppercase; }
 .opening-date { color: var(--navy-muted); font-size: .8rem; letter-spacing: .14em; }
-.opening-skip { background: transparent; border: 0; bottom: 2rem; color: var(--navy-muted); cursor: pointer; font-size: .7rem; letter-spacing: .12em; padding: .75rem; position: absolute; right: 2rem; text-transform: uppercase; z-index: 3; }
-.opening-skip:hover { color: var(--navy); }
+.opening-skip { background: var(--navy); border: 1px solid var(--gold); bottom: 2rem; color: var(--paper); cursor: pointer; font-size: .72rem; font-weight: 600; letter-spacing: .12em; padding: .85rem 1.2rem; position: absolute; right: 2rem; text-transform: uppercase; z-index: 3; }
+.opening-skip:hover { background: var(--blue); }
 .opening-tiles { display: grid; grid-template-columns: repeat(24, 1fr); inset: 0; position: absolute; }
 .opening-tiles span { animation: tile-reveal .7s calc(var(--tile-index) * 8ms) cubic-bezier(.76,0,.24,1) both; background-position: center; background-size: cover; border: 1px solid rgba(255,255,255,.38); }
 
@@ -37,9 +37,15 @@ h3 { color: var(--navy); font-size: 1.35rem; margin: 0 0 .45rem; }
 .ornament { color: var(--gold); display: block; font-size: 1.7rem; margin: 1rem 0; }
 .text-link, .button-link { color: var(--navy); display: inline-block; font-size: .75rem; letter-spacing: .13em; text-decoration: none; text-transform: uppercase; }
 .button-link { border: 1px solid var(--gold); margin-top: 2rem; padding: .9rem 1.3rem; }
-.section-band { background: var(--paper); border-top: 1px solid var(--line); padding: clamp(4rem, 9vw, 8rem) 1.25rem; }
+.section-band { background: var(--paper); overflow: hidden; position: relative; border-top: 1px solid var(--line); padding: clamp(4rem, 9vw, 8rem) 1.25rem; }
 .section-band--blue { background: var(--blue-pale); }
+.section-band--ornament .section-inner { position: relative; z-index: 1; }
+.section-watermark { mix-blend-mode: multiply; opacity: .12; pointer-events: none; position: absolute; right: -6rem; top: 6%; transform: rotate(12deg); width: min(34rem, 48vw); }
+.section-watermark--blue { left: -8rem; right: auto; top: 12%; transform: rotate(-18deg); width: min(38rem, 52vw); }
+.section-watermark--right { right: -9rem; top: 10%; transform: rotate(-28deg); width: min(36rem, 50vw); }
+.section-ornament { display: inline-block; flex: 0 0 auto; height: 2.4rem; margin: 0; mix-blend-mode: multiply; object-fit: contain; opacity: .68; width: 2.4rem; }
 .section-inner { margin: 0 auto; max-width: 72rem; width: 100%; }
+.section-inner > h2 { align-items: center; display: flex; flex-wrap: wrap; gap: .75rem 1rem; }
 .story-list { display: grid; gap: 3.5rem; }
 .chapter-page { border-top: 1px solid var(--line); display: grid; gap: clamp(1.5rem, 5vw, 4rem); grid-template-columns: minmax(0, 1.25fr) minmax(13rem, .8fr); padding-top: 1.75rem; }
 .chapter-page__number { color: var(--gold); font-family: Georgia, serif; font-size: 1.1rem; }
@@ -58,9 +64,14 @@ h3 { color: var(--navy); font-size: 1.35rem; margin: 0 0 .45rem; }
 .story-narrative--photo-text .story-image { order: 2; }
 .story-block__copy p:not(.story-block__index) { color: var(--ink-soft); line-height: 1.7; margin: .5rem 0; }
 .story-image { margin: 0; }
-.story-image__frame { align-items: center; background: var(--blue-pale); border: 1px solid var(--blue-soft); display: flex; justify-content: center; min-height: 15rem; overflow: hidden; position: relative; }
-.story-carousel img { animation: story-image-in .7s ease both; }
-.story-image img { display: block; height: 100%; max-height: 25rem; object-fit: cover; width: 100%; }
+.story-loading { color: var(--navy-muted); font-size: .75rem; letter-spacing: .08em; position: absolute; text-transform: uppercase; }
+.story-loading { color: var(--navy-muted); font-size: .75rem; letter-spacing: .08em; position: absolute; text-transform: uppercase; }
+.story-image__frame::before, .story-image__frame::after { background-color: var(--paper); background-image: var(--tile-frame-image); background-position: center; background-repeat: no-repeat; background-size: contain; border: 1px solid var(--gold); box-shadow: 0 0 0 3px var(--paper), 0 0 0 4px var(--blue-soft); content: ""; height: 2.35rem; mix-blend-mode: multiply; opacity: .9; position: absolute; top: .55rem; width: 2.35rem; z-index: 2; }
+.story-image__frame::before { left: .55rem; }
+.story-image__frame::after { right: .55rem; transform: scaleX(-1); }
+.story-image__frame { align-items: center; background: var(--blue-pale); border: 1px solid var(--blue-soft); box-shadow: 0 0 0 4px var(--paper), 0 0 0 5px var(--gold), inset 0 0 0 4px var(--paper), inset 0 0 0 5px var(--blue-soft); display: flex; justify-content: center; min-height: 15rem; overflow: hidden; position: relative; }
+.story-carousel img { animation: story-image-in .7s ease both; height: 100%; max-height: 100%; object-fit: contain; position: relative; width: 100%; z-index: 1; }
+.story-image img { display: block; height: 100%; max-height: 25rem; object-fit: contain; width: 100%; }
 .story-image__placeholder { color: var(--blue); font-family: Georgia, serif; font-size: 1.4rem; position: absolute; }
 .story-image figcaption { color: var(--navy-muted); font-size: .75rem; margin-top: .65rem; }
 .story-quote-block { border-bottom: 1px solid var(--line); border-top: 1px solid var(--line); padding: 3rem 1rem; text-align: center; }
@@ -82,7 +93,7 @@ h3 { color: var(--navy); font-size: 1.35rem; margin: 0 0 .45rem; }
 .detail-item strong { color: var(--navy); font-family: Georgia, serif; font-size: 1.15rem; font-weight: 400; }
 .wedding-layout { display: grid; gap: 2rem; grid-template-columns: repeat(2, 1fr); margin-top: 3rem; }
 .address-label { color: var(--blue); font-size: .68rem; letter-spacing: .16em; margin: 0 0 .75rem; text-transform: uppercase; }
-.map-frame { border: 1px solid var(--blue-soft); height: 15rem; margin: 1.5rem 0; overflow: hidden; }
+.map-frame { border: 1px solid var(--blue-soft); border-top: 3px solid var(--gold); height: 15rem; margin: 1.5rem 0; overflow: hidden; }
 .map-frame iframe { border: 0; height: 100%; width: 100%; }
 .map-frame span { align-items: center; color: var(--blue); display: flex; height: 100%; justify-content: center; }
 .wedding-address { color: var(--navy); font-family: Georgia, serif; font-size: 1.35rem; line-height: 1.5; margin: 0 0 1rem; }
@@ -98,7 +109,7 @@ h3 { color: var(--navy); font-size: 1.35rem; margin: 0 0 .45rem; }
 .pix-details small { color: var(--navy-muted); display: block; margin-top: .5rem; }
 .copy-button { background: transparent; border: 1px solid var(--gold); color: var(--navy); cursor: pointer; font-size: .7rem; letter-spacing: .12em; margin-top: 1rem; padding: .75rem 1rem; text-transform: uppercase; }
 .copy-button:hover { background: var(--blue-pale); }
-.pix-visual { align-items: center; background: var(--blue-pale); border: 1px solid var(--blue-soft); color: var(--blue); display: flex; flex-direction: column; justify-content: center; min-height: 18rem; padding: 2rem; text-align: center; }
+.pix-visual { align-items: center; background: var(--blue-pale); border: 1px solid var(--blue-soft); border-top: 3px solid var(--gold); color: var(--blue); display: flex; flex-direction: column; justify-content: center; min-height: 18rem; padding: 2rem; text-align: center; }
 .pix-visual img { background: white; display: block; max-width: 12rem; width: 100%; }
 .pix-visual span { font-family: Georgia, serif; font-size: 2rem; }
 .pix-visual small { color: var(--navy-muted); margin-top: .75rem; }
@@ -137,8 +148,21 @@ h3 { color: var(--navy); font-size: 1.35rem; margin: 0 0 .45rem; }
   .detail-item { padding: 1.15rem .75rem; }
   .confirmation-box .button-link, .copy-button { width: 100%; text-align: center; }
   .gallery-grid { grid-template-columns: 1fr; }
+  .section-watermark { opacity: .07; width: 20rem; }
+  .section-ornament { height: 2rem; width: 2rem; }
   .opening-skip { bottom: 1rem; right: 1rem; }
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
